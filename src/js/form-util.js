@@ -33,6 +33,9 @@ const conditions = {
   '#field-heuresortie': {
     pattern: /\d{2}:\d{2}/g,
   },
+  '#field-creationHour': {
+    pattern: /\d{2}:\d{2}/g,
+  },
 }
 
 function validateAriaFields () {
@@ -143,9 +146,7 @@ export function prepareInputs (formInputs, reasonInputs, reasonFieldset, reasonA
 
     const creationInstant = new Date()
     const creationDate = creationInstant.toLocaleDateString('fr-CA')
-    const creationHour = creationInstant
-      .toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' })
-      .replace(':', '-')
+    const creationHour = getProfile(formInputs)['creationHour'].replace(':', '-')
 
     downloadBlob(pdfBlob, `attestation-${creationDate}_${creationHour}.pdf`)
 

@@ -80,7 +80,7 @@
       "type": "time",
       "contentType": "creationHour",
       "label": "Heure de création",
-      "isHidden": true
+      "isHidden": false
     },
     {
       "key": "datesortie",
